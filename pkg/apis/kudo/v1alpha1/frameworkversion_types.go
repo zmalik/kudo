@@ -36,6 +36,9 @@ type FrameworkVersionSpec struct {
 	//Plans specify a map a plans that specify how to
 	Plans map[string]Plan `json:"plans,omitempty"`
 
+	//Commands specify the supported commands
+	Commands []Command `json:"commands,omitempty"`
+
 	//ConnectionString defines a mustached string that can be used
 	// to connect to an instance of the Framework
 	// +optional
@@ -64,6 +67,12 @@ type Plan struct {
 	Strategy Ordering `json:"strategy" validate:"required"` // makes field mandatory and checks if set and non empty
 	//Phases maps a phase name to a Phase object
 	Phases []Phase `json:"phases" validate:"required,gt=0,dive"` // makes field mandatory and checks if its gt 0
+}
+
+
+//Commands specifies the command the pod support
+type Command struct {
+	RunCommand string `json:"runCommand,omitempty"`
 }
 
 //Parameter captures the variability of a FrameworkVersion being instantiated in an instance.  Describes

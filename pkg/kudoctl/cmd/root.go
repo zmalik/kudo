@@ -42,6 +42,7 @@ and serves as an API aggregation layer.
 	cmd.AddCommand(NewListCmd())
 	cmd.AddCommand(NewPlanCmd())
 	cmd.AddCommand(NewVersionCmd())
+	cmd.AddCommand(NewOperatorCmd())
 
 	return cmd
 }

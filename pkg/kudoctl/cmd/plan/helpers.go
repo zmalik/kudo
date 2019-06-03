@@ -33,3 +33,8 @@ func mustKubeConfig() {
 		log.Fatalf("Error: failed to find kubeconfig file (%v): %v", kubeConfig, err)
 	}
 }
+
+// mustKubeConfig checks if the kubeconfig file exists.
+func MustKubeConfig() {
+	mustKubeConfig()
+}

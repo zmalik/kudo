@@ -154,7 +154,7 @@ spec:
           ############################# Log Basics #############################
 
           # A comma separated list of directories under which to store log files
-          log.dirs=/var/lib/kafka/data
+          log.dirs=/var/lib/kafka
 
           # The default number of log partitions per topic. More partitions allow greater
           # parallelism for consumption, but this will also result in more files across
@@ -292,7 +292,6 @@ spec:
                     - sh
                     - -c
                     - "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server=localhost:{{BROKER_PORT}}"
-                timeoutSeconds: 10
             securityContext:
               runAsUser: 1000
               fsGroup: 1000
